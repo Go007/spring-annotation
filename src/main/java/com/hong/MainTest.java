@@ -40,5 +40,10 @@ public class MainTest {
             System.out.println(name);
         }
 
+        System.out.println("=================================");
+        beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName:beanDefinitionNames){
+            System.out.println(beanDefinitionName);
+        }
     }
 }
