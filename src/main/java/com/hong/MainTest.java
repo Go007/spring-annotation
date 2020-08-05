@@ -1,5 +1,7 @@
 package com.hong;
 
+import com.hong.bean.Person;
+import com.hong.config.MainConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -14,7 +16,7 @@ public class MainTest {
 
     public static void main(String[] args) {
 //		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
-        // 注意查看方法调用链 debug调用栈
+        // 注意查看方法调用链(Navigate -> call Hierarchy) debug调用栈
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         /**
@@ -28,5 +30,15 @@ public class MainTest {
         for (String beanDefinitionName:beanDefinitionNames){
             System.out.println(beanDefinitionName);
         }
+
+        System.out.println("================================");
+        applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+        Person bean = applicationContext.getBean(Person.class);
+        System.out.println(bean);
+        String[] namesForType = applicationContext.getBeanNamesForType(Person.class);
+        for (String name : namesForType) {
+            System.out.println(name);
+        }
+
     }
 }
