@@ -1,5 +1,6 @@
 package com.hong.test;
 
+import com.hong.bean.Red;
 import com.hong.config.MainConfigOfLifeCycle;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -11,8 +12,8 @@ public class IOCTest_LifeCycle {
 		//1、创建ioc容器
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfLifeCycle.class);
 		System.out.println("容器创建完成...");
-
 		applicationContext.getBean("car");
+		Red red = (Red) applicationContext.getBean("red");
 		//关闭容器
 		applicationContext.close();
 	}
