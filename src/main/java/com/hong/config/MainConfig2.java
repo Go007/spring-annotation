@@ -1,6 +1,7 @@
 package com.hong.config;
 
 import com.hong.bean.Color;
+import com.hong.bean.ColorFactoryBean;
 import com.hong.bean.Person;
 import com.hong.condition.LinuxCondition;
 import com.hong.condition.MyImportBeanDefinitionRegistrar;
@@ -26,5 +27,10 @@ public class MainConfig2 {
 	@Bean("linus")
 	public Person person02(){
 		return new Person("linus", 48);
+	}
+
+	@Bean
+	public ColorFactoryBean colorFactoryBean(){
+		return new ColorFactoryBean();
 	}
 }
